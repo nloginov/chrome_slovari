@@ -26,6 +26,22 @@ function getSelectionAttributes(selectionObj) {
     };
 }
 
+function showPopover(selectionAttributes, outputHTML) {
+    $("#kolyanlab_slovari").remove();
+    $("body").append(outputHTML);
+
+    var popover = $("#kolyanlab_slovari");
+    popover.click(function () {
+        $(this).hide();
+    })
+
+    width = popover.outerWidth(true);
+    height = popover.outerHeight(true);
+
+    popover.css('left', selectionAttributes.left - width/2.)
+    popover.css('top', selectionAttributes.top - height - selectionAttributes.height)
+}
+
 $(document).keypress(function (event) {
     if (event.which == 13) {
         var selectionObj = window.getSelection();
@@ -33,22 +49,22 @@ $(document).keypress(function (event) {
         req.done(function (data) {
             var selectionAttributes = getSelectionAttributes(selectionObj);
 
-            output = Templates.Popover.render({
+            var translation;
+            if (data.def.length > 0) {
+                translation = data.def[0].tr[0].text;
+            }
+            else {
+                translation = "<В словаре не найдено>";
+            }
+
+            outputHTML = Templates.Popover.render({
                 title: selectionObj.toString(),
-                translation: data.def[0].tr[0].text,
-                offset_x: selectionAttributes.left,
-                offset_y: selectionAttributes.top
+                translation: translation,
+                offset_x: 0,
+                offset_y: 0
             });
 
-            $("#kolyanlab_slovari").remove();
-            $("body").append(output);
-
-            var popover = $("#kolyanlab_slovari");
-            width = popover.outerWidth(true);
-            height = popover.outerHeight(true);
-
-            popover.css('left', selectionAttributes.left - width/2.)
-            popover.css('top', selectionAttributes.top - height - selectionAttributes.height)
-         })
+            showPopover(selectionAttributes, outputHTML);
+         });
     }
 });
