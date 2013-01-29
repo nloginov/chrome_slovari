@@ -1,4 +1,4 @@
-#kolyanlab_slovari.popover {
+#ru_nloginov_slovari.popover {
   position: absolute;
   top: 0;
   left: 0;
@@ -21,23 +21,23 @@
           background-clip: padding-box;
 }
 
-#kolyanlab_slovari.popover.top {
+#ru_nloginov_slovari.popover.top {
   margin-top: -10px;
 }
 
-#kolyanlab_slovari.popover.right {
+#ru_nloginov_slovari.popover.right {
   margin-left: 10px;
 }
 
-#kolyanlab_slovari.popover.bottom {
+#ru_nloginov_slovari.popover.bottom {
   margin-top: 10px;
 }
 
-#kolyanlab_slovari.popover.left {
+#ru_nloginov_slovari.popover.left {
   margin-left: -10px;
 }
 
-#kolyanlab_slovari .popover-title {
+#ru_nloginov_slovari .popover-title {
   padding: 8px 14px;
   margin: 0;
   font-size: 14px;
@@ -50,12 +50,12 @@
           border-radius: 5px 5px 0 0;
 }
 
-#kolyanlab_slovari .popover-content {
+#ru_nloginov_slovari .popover-content {
   padding: 9px 14px;
 }
 
-#kolyanlab_slovari.popover .arrow,
-#kolyanlab_slovari.popover .arrow:after {
+#ru_nloginov_slovari.popover .arrow,
+#ru_nloginov_slovari.popover .arrow:after {
   position: absolute;
   display: block;
   width: 0;
@@ -64,16 +64,16 @@
   border-style: solid;
 }
 
-#kolyanlab_slovari.popover .arrow {
+#ru_nloginov_slovari.popover .arrow {
   border-width: 11px;
 }
 
-#kolyanlab_slovari.popover .arrow:after {
+#ru_nloginov_slovari.popover .arrow:after {
   border-width: 10px;
   content: "";
 }
 
-#kolyanlab_slovari.popover.top .arrow {
+#ru_nloginov_slovari.popover.top .arrow {
   bottom: -11px;
   left: 50%;
   margin-left: -11px;
@@ -82,14 +82,14 @@
   border-bottom-width: 0;
 }
 
-#kolyanlab_slovari.popover.top .arrow:after {
+#ru_nloginov_slovari.popover.top .arrow:after {
   bottom: 1px;
   margin-left: -10px;
   border-top-color: #ffffff;
   border-bottom-width: 0;
 }
 
-#kolyanlab_slovari.popover.right .arrow {
+#ru_nloginov_slovari.popover.right .arrow {
   top: 50%;
   left: -11px;
   margin-top: -11px;
@@ -98,14 +98,14 @@
   border-left-width: 0;
 }
 
-#kolyanlab_slovari.popover.right .arrow:after {
+#ru_nloginov_slovari.popover.right .arrow:after {
   bottom: -10px;
   left: 1px;
   border-right-color: #ffffff;
   border-left-width: 0;
 }
 
-#kolyanlab_slovari.popover.bottom .arrow {
+#ru_nloginov_slovari.popover.bottom .arrow {
   top: -11px;
   left: 50%;
   margin-left: -11px;
@@ -114,14 +114,14 @@
   border-top-width: 0;
 }
 
-#kolyanlab_slovari.popover.bottom .arrow:after {
+#ru_nloginov_slovari.popover.bottom .arrow:after {
   top: 1px;
   margin-left: -10px;
   border-bottom-color: #ffffff;
   border-top-width: 0;
 }
 
-#kolyanlab_slovari.popover.left .arrow {
+#ru_nloginov_slovari.popover.left .arrow {
   top: 50%;
   right: -11px;
   margin-top: -11px;
@@ -130,7 +130,7 @@
   border-right-width: 0;
 }
 
-#kolyanlab_slovari.popover.left .arrow:after {
+#ru_nloginov_slovari.popover.left .arrow:after {
   right: 1px;
   bottom: -10px;
   border-left-color: #ffffff;

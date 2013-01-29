@@ -3,7 +3,6 @@ function makeAPIRequest(textToTranslate) {
         "lang": "en-ru",
         "text": textToTranslate,
         "flags": "5"
-
     }
     return $.get("http://translate.yandex.net/dicservice.json/lookup", params);
 }
@@ -27,10 +26,10 @@ function getSelectionAttributes(selectionObj) {
 }
 
 function showPopover(selectionAttributes, outputHTML) {
-    $("#kolyanlab_slovari").remove();
+    $("#ru_nloginov_slovari").remove();
     $("body").append(outputHTML);
 
-    var popover = $("#kolyanlab_slovari");
+    var popover = $("#ru_nloginov_slovari");
     popover.click(function () {
         $(this).hide();
     })

@@ -1,4 +1,4 @@
-<div id="kolyanlab_slovari" class="popover top" style="position: absolute; left: {{offset_x}}px; top: {{offset_y}}px">
+<div id="ru_nloginov_slovari" class="popover top" style="position: absolute; left: {{offset_x}}px; top: {{offset_y}}px">
     <div class="arrow"></div>
     <div class="popover-inner">
         <h3 class="popover-title">{{title}}</h3>
