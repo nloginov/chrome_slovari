@@ -1,7 +1,7 @@
 function makeAPIRequest(textToTranslate) {
     var params = {
         "lang": "en-ru",
-        "text": textToTranslate,
+        "text": textToTranslate.trim(),
         "flags": "5"
     }
     return $.get("http://translate.yandex.net/dicservice.json/lookup", params);
