@@ -30,15 +30,32 @@ function showPopover(selectionAttributes, outputHTML) {
     $("body").append(outputHTML);
 
     var popover = $("#ru_nloginov_slovari");
-    popover.click(function () {
-        $(this).hide();
-    })
+    $(document).click(function () {
+        popover.hide();
+    });
 
     width = popover.outerWidth(true);
     height = popover.outerHeight(true);
 
     popover.css('left', selectionAttributes.left - width/2.)
     popover.css('top', selectionAttributes.top - height - selectionAttributes.height)
+}
+
+function buildViewModel(word, rawData) {
+    var result = {"translations": [], "title": word };
+    var translations = result.translations;
+    if (rawData.def.length > 0) {
+        $.each(rawData.def, function(_, definition) {
+            $.each(definition.tr, function (_, translation) {
+                translations.push({"translation" : translation.text});
+            });
+       });
+    }
+    else {
+        translations.push({"translation" : "<В словаре не найдено>"});
+    }
+
+    return result;
 }
 
 $(document).keypress(function (event) {
@@ -48,20 +65,8 @@ $(document).keypress(function (event) {
         req.done(function (data) {
             var selectionAttributes = getSelectionAttributes(selectionObj);
 
-            var translation;
-            if (data.def.length > 0) {
-                translation = data.def[0].tr[0].text;
-            }
-            else {
-                translation = "<В словаре не найдено>";
-            }
-
-            outputHTML = Templates.Popover.render({
-                title: selectionObj.toString(),
-                translation: translation,
-                offset_x: 0,
-                offset_y: 0
-            });
+            var viewModel = buildViewModel(selectionObj.toString(), data);
+            var outputHTML = Templates.Popover.render(viewModel);
 
             showPopover(selectionAttributes, outputHTML);
          });

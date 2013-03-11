@@ -1,9 +1,11 @@
-<div id="ru_nloginov_slovari" class="popover top" style="position: absolute; left: {{offset_x}}px; top: {{offset_y}}px">
+<div id="ru_nloginov_slovari" class="ru_nloginov_popover top" style="position: absolute; left: 0px; top: 0px">
     <div class="arrow"></div>
-    <div class="popover-inner">
-        <h3 class="popover-title">{{title}}</h3>
-        <div class="popover-content">
+    <div class="ru_nloginov_popover-inner">
+        <h3 class="ru_nloginov_popover-title">{{title}}</h3>
+        <div class="ru_nloginov_popover-content">
+            {{#translations}}
             <p>{{translation}}</p>
+            {{/translations}}
         </div>
     </div>
 </div>
