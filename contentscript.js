@@ -34,6 +34,12 @@ function showPopover(selectionAttributes, outputHTML) {
         popover.hide();
     });
 
+    $(document).keyup(function(event) {
+        if(event.keyCode == 27)  { //Esc
+            popover.hide()
+        }
+    });
+
     width = popover.outerWidth(true);
     height = popover.outerHeight(true);
 
