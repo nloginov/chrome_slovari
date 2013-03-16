@@ -3,9 +3,11 @@
     <div class="ru_nloginov_popover-inner">
         <h3 class="ru_nloginov_popover-title">{{title}}</h3>
         <div class="ru_nloginov_popover-content">
-            {{#translations}}
-            <p>{{translation}}</p>
-            {{/translations}}
+            <ol>
+                {{#translations}}
+                <li>{{translation}}</li>
+                {{/translations}}
+            </ol>
         </div>
     </div>
 </div>
