@@ -1,5 +1,5 @@
 #!/usr/local/bin/node
-var hogan = require("hogan.js")
+var hogan = require(__dirname + "/external/hogan.js")
 var fs = require("fs");
 
 var filename = __dirname + "/templates/popover.hogan";
