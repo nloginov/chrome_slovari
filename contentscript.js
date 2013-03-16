@@ -1,16 +1,20 @@
+"use strict";
+/*jslint browser:true, vars:true, white:true, plusplus:true, nomen:true */
+/*global  $, Templates*/
+
 function makeAPIRequest(textToTranslate) {
     var params = {
         "lang": "en-ru",
         "text": textToTranslate.trim(),
         "flags": "5"
-    }
+    };
     return $.get("http://translate.yandex.net/dicservice.json/lookup", params);
 }
 
 function getSelectionAttributes(selectionObj) {
     var range = selectionObj.getRangeAt(0);
     range.collapse(false);
-    
+
     var dummy = document.createElement("span");
     range.insertNode(dummy);
     
@@ -29,9 +33,9 @@ function onWantTranslate(callback) {
     var ctrlCCount = 0;
     var fired = false;
     $(document).keydown(function (event) {
-        if (event.which == 67 && event.ctrlKey) {
+        if (event.which === 67 && event.ctrlKey) {
             ctrlCCount++;
-            if(ctrlCCount == 2) {
+            if(ctrlCCount === 2) {
                 fired = true;
             }
         }
@@ -59,16 +63,16 @@ function showPopover(selectionAttributes, outputHTML) {
     });
 
     $(document).keyup(function(event) {
-        if(event.keyCode == 27)  { //Esc
-            popover.hide()
+        if(event.keyCode === 27)  { //Esc
+            popover.hide();
         }
     });
 
-    width = popover.outerWidth(true);
-    height = popover.outerHeight(true);
+    var width = popover.outerWidth(true);
+    var height = popover.outerHeight(true);
 
-    popover.css('left', selectionAttributes.left - width/2.)
-    popover.css('top', selectionAttributes.top - height - selectionAttributes.height)
+    popover.css('left', selectionAttributes.left - width/2);
+    popover.css('top', selectionAttributes.top - height - selectionAttributes.height);
 }
 
 function buildViewModel(word, rawData) {
