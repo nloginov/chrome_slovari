@@ -1,3 +1,105 @@
+#ru_nloginov_slovari div,
+#ru_nloginov_slovari span,
+#ru_nloginov_slovari h1,
+#ru_nloginov_slovari h2,
+#ru_nloginov_slovari h3,
+#ru_nloginov_slovari h4,
+#ru_nloginov_slovari h5,
+#ru_nloginov_slovari h6,
+#ru_nloginov_slovari p,
+#ru_nloginov_slovari blockquote,
+#ru_nloginov_slovari pre,
+#ru_nloginov_slovari a,
+#ru_nloginov_slovari abbr,
+#ru_nloginov_slovari acronym,
+#ru_nloginov_slovari address,
+#ru_nloginov_slovari big,
+#ru_nloginov_slovari cite,
+#ru_nloginov_slovari code,
+#ru_nloginov_slovari del,
+#ru_nloginov_slovari dfn,
+#ru_nloginov_slovari em,
+#ru_nloginov_slovari img,
+#ru_nloginov_slovari ins,
+#ru_nloginov_slovari kbd,
+#ru_nloginov_slovari q,
+#ru_nloginov_slovari s,
+#ru_nloginov_slovari samp,
+#ru_nloginov_slovari small,
+#ru_nloginov_slovari strike,
+#ru_nloginov_slovari strong,
+#ru_nloginov_slovari sub,
+#ru_nloginov_slovari sup,
+#ru_nloginov_slovari tt,
+#ru_nloginov_slovari var,
+#ru_nloginov_slovari b,
+#ru_nloginov_slovari u,
+#ru_nloginov_slovari i,
+#ru_nloginov_slovari center,
+#ru_nloginov_slovari dl,
+#ru_nloginov_slovari dt,
+#ru_nloginov_slovari dd,
+#ru_nloginov_slovari ol,
+#ru_nloginov_slovari ul,
+#ru_nloginov_slovari li,
+#ru_nloginov_slovari fieldset,
+#ru_nloginov_slovari form,
+#ru_nloginov_slovari label,
+#ru_nloginov_slovari legend,
+#ru_nloginov_slovari table,
+#ru_nloginov_slovari caption,
+#ru_nloginov_slovari tbody,
+#ru_nloginov_slovari tfoot,
+#ru_nloginov_slovari thead,
+#ru_nloginov_slovari tr,
+#ru_nloginov_slovari th,
+#ru_nloginov_slovari td,
+#ru_nloginov_slovari article,
+#ru_nloginov_slovari aside,
+#ru_nloginov_slovari canvas,
+#ru_nloginov_slovari details,
+#ru_nloginov_slovari embed,
+#ru_nloginov_slovari figure,
+#ru_nloginov_slovari figcaption,
+#ru_nloginov_slovari footer,
+#ru_nloginov_slovari header,
+#ru_nloginov_slovari hgroup,
+#ru_nloginov_slovari menu,
+#ru_nloginov_slovari nav,
+#ru_nloginov_slovari output,
+#ru_nloginov_slovari ruby,
+#ru_nloginov_slovari section,
+#ru_nloginov_slovari summary,
+#ru_nloginov_slovari time,
+#ru_nloginov_slovari mark,
+#ru_nloginov_slovari audio,
+#ru_nloginov_slovari video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+#ru_nloginov_slovari ol,
+#ru_nloginov_slovari ul {
+  list-style: none;
+}
+#ru_nloginov_slovari blockquote,
+#ru_nloginov_slovari q {
+  quotes: none;
+}
+#ru_nloginov_slovari blockquote:before,
+#ru_nloginov_slovari blockquote:after,
+#ru_nloginov_slovari q:before,
+#ru_nloginov_slovari q:after {
+  content: '';
+  content: none;
+}
+#ru_nloginov_slovari table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
 #ru_nloginov_slovari.ru_nloginov_popover {
   position: absolute;
   top: 0;
@@ -11,32 +113,27 @@
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  -moz-border-radius: 6px;
+  border-radius: 6px;
   -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-          box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
   -webkit-background-clip: padding-box;
-     -moz-background-clip: padding;
-          background-clip: padding-box;
+  -moz-background-clip: padding;
+  background-clip: padding-box;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.top {
   margin-top: -10px;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.right {
   margin-left: 10px;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.bottom {
   margin-top: 10px;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.left {
   margin-left: -10px;
 }
-
 #ru_nloginov_slovari .ru_nloginov_popover-title {
   padding: 8px 14px;
   margin: 0;
@@ -46,14 +143,12 @@
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
   -webkit-border-radius: 5px 5px 0 0;
-     -moz-border-radius: 5px 5px 0 0;
-          border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  border-radius: 5px 5px 0 0;
 }
-
 #ru_nloginov_slovari .ru_nloginov_popover-content {
   padding: 9px 14px;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover .arrow,
 #ru_nloginov_slovari.ru_nloginov_popover .arrow:after {
   position: absolute;
@@ -63,16 +158,13 @@
   border-color: transparent;
   border-style: solid;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover .arrow {
   border-width: 11px;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover .arrow:after {
   border-width: 10px;
   content: "";
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.top .arrow {
   bottom: -11px;
   left: 50%;
@@ -81,14 +173,12 @@
   border-top-color: rgba(0, 0, 0, 0.25);
   border-bottom-width: 0;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.top .arrow:after {
   bottom: 1px;
   margin-left: -10px;
   border-top-color: #ffffff;
   border-bottom-width: 0;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.right .arrow {
   top: 50%;
   left: -11px;
@@ -97,14 +187,12 @@
   border-right-color: rgba(0, 0, 0, 0.25);
   border-left-width: 0;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.right .arrow:after {
   bottom: -10px;
   left: 1px;
   border-right-color: #ffffff;
   border-left-width: 0;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.bottom .arrow {
   top: -11px;
   left: 50%;
@@ -113,14 +201,12 @@
   border-bottom-color: rgba(0, 0, 0, 0.25);
   border-top-width: 0;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.bottom .arrow:after {
   top: 1px;
   margin-left: -10px;
   border-bottom-color: #ffffff;
   border-top-width: 0;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.left .arrow {
   top: 50%;
   right: -11px;
@@ -129,11 +215,9 @@
   border-left-color: rgba(0, 0, 0, 0.25);
   border-right-width: 0;
 }
-
 #ru_nloginov_slovari.ru_nloginov_popover.left .arrow:after {
   right: 1px;
   bottom: -10px;
   border-left-color: #ffffff;
   border-right-width: 0;
 }
-
