@@ -25,6 +25,30 @@ function getSelectionAttributes(selectionObj) {
     };
 }
 
+function onWantTranslate(callback) {
+    var ctrlCCount = 0;
+    var fired = false;
+    $(document).keydown(function (event) {
+        if (event.which == 67 && event.ctrlKey) {
+            ctrlCCount++;
+            if(ctrlCCount == 2) {
+                fired = true;
+            }
+        }
+        else {
+            ctrlCCount = 0;
+        }
+    });
+
+    $(document).keyup(function (event) {
+        if(fired) {
+            fired = false;
+            ctrlCCount = 0;
+            callback();
+        }
+    });
+}
+
 function showPopover(selectionAttributes, outputHTML) {
     $("#ru_nloginov_slovari").remove();
     $("body").append(outputHTML);
@@ -64,17 +88,15 @@ function buildViewModel(word, rawData) {
     return result;
 }
 
-$(document).keypress(function (event) {
-    if (event.which == 13) {
-        var selectionObj = window.getSelection();
-        var req = makeAPIRequest(selectionObj.toString());
-        req.done(function (data) {
-            var selectionAttributes = getSelectionAttributes(selectionObj);
+onWantTranslate(function () {
+    var selectionObj = window.getSelection();
+    var req = makeAPIRequest(selectionObj.toString());
+    req.done(function (data) {
+        var selectionAttributes = getSelectionAttributes(selectionObj);
 
-            var viewModel = buildViewModel(selectionObj.toString(), data);
-            var outputHTML = Templates.Popover.render(viewModel);
+        var viewModel = buildViewModel(selectionObj.toString(), data);
+        var outputHTML = Templates.Popover.render(viewModel);
 
-            showPopover(selectionAttributes, outputHTML);
-         });
-    }
+        showPopover(selectionAttributes, outputHTML);
+    });
 });
