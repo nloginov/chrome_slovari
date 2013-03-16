@@ -100,6 +100,9 @@
   border-collapse: collapse;
   border-spacing: 0;
 }
+#ru_nloginov_slovari h3 {
+  color: #000000;
+}
 #ru_nloginov_slovari.ru_nloginov_popover {
   position: absolute;
   top: 0;
@@ -110,6 +113,7 @@
   text-align: left;
   white-space: normal;
   background-color: #ffffff;
+  color: #000000;
   border: 1px solid #ccc;
   border: 1px solid rgba(0, 0, 0, 0.2);
   -webkit-border-radius: 6px;
