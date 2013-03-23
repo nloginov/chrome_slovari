@@ -53,6 +53,21 @@ function onWantTranslate(callback) {
     });
 }
 
+function buildPopoverPosition(selectionAttributes, width, height) {
+    var top = selectionAttributes.top - height - selectionAttributes.height;
+    var arrowOrientation = "top";
+    if(top < 0) {
+        top = selectionAttributes.top + selectionAttributes.height;
+        arrowOrientation = "bottom";
+    }
+
+    return { 
+        left: selectionAttributes.left - width/2,
+        top: top,
+        arrow: arrowOrientation
+    };
+}
+
 function showPopover(selectionAttributes, outputHTML) {
     $("#ru_nloginov_slovari").remove();
     $("body").append(outputHTML);
@@ -70,9 +85,12 @@ function showPopover(selectionAttributes, outputHTML) {
 
     var width = popover.outerWidth(true);
     var height = popover.outerHeight(true);
+    var popoverPosition = buildPopoverPosition(selectionAttributes, width, height);
 
-    popover.css('left', selectionAttributes.left - width/2);
-    popover.css('top', selectionAttributes.top - height - selectionAttributes.height);
+    popover.css('left', popoverPosition.left);
+    popover.css('top', popoverPosition.top);
+    popover.removeClass("top left");
+    popover.addClass(popoverPosition.arrow);
 }
 
 function buildViewModel(word, rawData) {
