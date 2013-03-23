@@ -56,7 +56,7 @@ function onWantTranslate(callback) {
 function buildPopoverPosition(selectionAttributes, width, height) {
     var top = selectionAttributes.top - height - selectionAttributes.height;
     var arrowOrientation = "top";
-    if(top < 0) {
+    if(top - $(window).scrollTop() < 0) {
         top = selectionAttributes.top + selectionAttributes.height;
         arrowOrientation = "bottom";
     }
