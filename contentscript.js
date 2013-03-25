@@ -80,7 +80,7 @@ function showPopover(selectionAttributes, outputHTML) {
 
     popover.css('left', popoverPosition.left);
     popover.css('top', popoverPosition.top);
-    popover.removeClass("top left");
+    popover.removeClass("top");
     popover.addClass(popoverPosition.arrow);
 }
 
