@@ -1,6 +1,7 @@
 "use strict";
 /*jslint browser:true, vars:true, white:true, plusplus:true, nomen:true */
 /*global  $, Templates*/
+var POPOVER_SELECTOR = "#ru_nloginov_slovari";
 
 function makeAPIRequest(textToTranslate) {
     var params = {
@@ -56,7 +57,7 @@ function onWantTranslate(callback) {
 function buildPopoverPosition(selectionAttributes, width, height) {
     var top = selectionAttributes.top - height - selectionAttributes.height;
     var arrowOrientation = "top";
-    if(top < 0) {
+    if(top - $(window).scrollTop() < 0) {
         top = selectionAttributes.top + selectionAttributes.height;
         arrowOrientation = "bottom";
     }
@@ -69,27 +70,17 @@ function buildPopoverPosition(selectionAttributes, width, height) {
 }
 
 function showPopover(selectionAttributes, outputHTML) {
-    $("#ru_nloginov_slovari").remove();
+    $(POPOVER_SELECTOR).remove();
     $("body").append(outputHTML);
 
-    var popover = $("#ru_nloginov_slovari");
-    $(document).click(function () {
-        popover.hide();
-    });
-
-    $(document).keyup(function(event) {
-        if(event.keyCode === 27)  { //Esc
-            popover.hide();
-        }
-    });
-
+    var popover = $(POPOVER_SELECTOR);
     var width = popover.outerWidth(true);
     var height = popover.outerHeight(true);
     var popoverPosition = buildPopoverPosition(selectionAttributes, width, height);
 
     popover.css('left', popoverPosition.left);
     popover.css('top', popoverPosition.top);
-    popover.removeClass("top left");
+    popover.removeClass("top");
     popover.addClass(popoverPosition.arrow);
 }
 
@@ -109,6 +100,16 @@ function buildViewModel(word, rawData) {
 
     return result;
 }
+
+$(document).click(function () {
+    $(POPOVER_SELECTOR).hide();
+});
+
+$(document).keyup(function(event) {
+    if(event.keyCode === 27)  { //Esc
+        $(POPOVER_SELECTOR).hide();
+    }
+});
 
 onWantTranslate(function () {
     var selectionObj = window.getSelection();
