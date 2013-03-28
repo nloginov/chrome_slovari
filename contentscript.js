@@ -84,10 +84,14 @@ function showPopover(selectionAttributes, outputHTML) {
     popover.addClass(popoverPosition.arrow);
 }
 
+function isEmptyModel(rawData) {
+    return rawData.def.length === 0;
+}
+
 function buildViewModel(word, rawData) {
     var result = {"translations": [], "title": word };
     var translations = result.translations;
-    if (rawData.def.length > 0) {
+    if (!isEmptyModel(rawData)) {
         $.each(rawData.def, function(_, definition) {
             $.each(definition.tr, function (_, translation) {
                 translations.push({"translation" : translation.text});
@@ -111,15 +115,30 @@ $(document).keyup(function(event) {
     }
 });
 
+function getTranslation(query) {       
+    var result = $.Deferred();
+    var candidates = [query.singularize(), query];
+    (function iterate(i) {
+        var req = makeAPIRequest(candidates[i]);
+        req.done(function (rawData) {
+            if(isEmptyModel(rawData) && i !== candidates.length - 1) {
+                iterate(i+1);
+            } else {
+                result.resolve({"query": candidates[i].trim(), "data": rawData});
+            }
+        });
+    }(0));
+
+    return result.promise();
+}
+
 onWantTranslate(function () {
     var selectionObj = window.getSelection();
-    var req = makeAPIRequest(selectionObj.toString());
-    req.done(function (data) {
-        var selectionAttributes = getSelectionAttributes(selectionObj);
-
-        var viewModel = buildViewModel(selectionObj.toString(), data);
+    var query = selectionObj.toString().trim();
+    getTranslation(query).done(function(rawData) {
+        var viewModel = buildViewModel(rawData.query, rawData.data);
         var outputHTML = Templates.Popover.render(viewModel);
-
+        var selectionAttributes = getSelectionAttributes(selectionObj);
         showPopover(selectionAttributes, outputHTML);
     });
 });

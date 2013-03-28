@@ -7,7 +7,7 @@ test( "'javascript' translation", function () {
             { translation: 'сценарий JavaScript' }
         ]
     };
-    deepEqual(buildViewModel('javascript', javascriptWord), expected);
+    deepEqual(buildViewModel('javascript', dictionary['javascript']), expected);
 });
 
 test( "'free' translation", function () {
@@ -20,17 +20,37 @@ test( "'free' translation", function () {
             { translation: 'освободить' },
         ]
     };
-    deepEqual(buildViewModel('free', freeWord), expected);
+    deepEqual(buildViewModel('free', dictionary['free']), expected);
+});
+module("isEmptyModel");
+test( "empty translation", function () {
+    ok(isEmptyModel(dictionary['blablabla']));
+    ok(!isEmptyModel(dictionary['javascript']));
+    ok(!isEmptyModel(dictionary['free']));
 });
 
-test( "empty translation", function () {
-    var expected = {
-        title: 'blablabla',
-        translations: [
-            { translation: '<В словаре не найдено>' }, 
-        ]
-    };
-    deepEqual(buildViewModel('blablabla', emptyWord), expected);
+module("getTranslation");
+function makeAPIRequest(textToTranslate) {
+    var word = dictionary[textToTranslate.trim()];
+    var result = new $.Deferred();
+    result.resolve(word);
+    return result;
+}
+asyncTest("'javascript'. Only singular exist.", function () {
+    getTranslation(' javascript ').done(function (actual) { deepEqual(actual, 
+            { query: 'javascript', data: dictionary['javascript']}); start(); });
+});
+asyncTest("'camels'. Only Plural exist", function () {
+    getTranslation('camels').done(function (actual) { deepEqual(actual, 
+            { query: 'camel', data: dictionary['camel']}); start(); });
+});
+asyncTest("'revisions'. Both singular and plural exist", function () {
+    getTranslation('revisions').done(function (actual) { deepEqual(actual, 
+            { query: 'revision', data: dictionary['revision']}); start(); });
+});
+asyncTest("'blablabla'. Neither plural neither singular", function () {
+    getTranslation('blablabla').done(function (actual) { deepEqual(actual, 
+            { query: 'blablabla', data: dictionary['blablabla']}); start(); });
 });
 
 module("User actions", {
@@ -38,7 +58,6 @@ module("User actions", {
         $(document).off();
     }
 });
-
 function triggerKey(eventType, key) {
     var type = {'down' : 'keydown', 'up' : 'keyup'};
     var keys = {'ctrl' : 17, 'c': 67 };
