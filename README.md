@@ -32,10 +32,9 @@ Plugin uses number of open source libraries:
 * [Twitter Bootstrap] styles
 * [inflection.js] for inflection support
 
-*Free Software*
-
   [lessc]: http://lesscss.org/
   [node.js]: http://nodejs.org
   [Twitter Bootstrap]: http://twitter.github.com/bootstrap/
-  [jQuery]: http://jquery.com  
+  [jQuery]: http://jquery.com
+  [hogan.js]: http://twitter.github.com/hogan.js/  
   [inflection.js]: https://code.google.com/p/inflection-js/
