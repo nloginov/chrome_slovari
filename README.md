@@ -1,4 +1,4 @@
-Google Chrome extension allowing you to know russian translation of english word on a web page.
+Google Chrome extension allowes you to get russian translation of english word on a web page.
 Plugin uses Yandex.Slovari API.
 Project released under MIT license.
 
