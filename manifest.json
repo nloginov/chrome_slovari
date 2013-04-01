@@ -1,12 +1,16 @@
 {
-    "name": "Yandex.Slovari Popup",
-    "version": "0.2",
-    "description": "Shows a translation of a selected word",
+    "name": "__MSG_extName__",
+    "version": "0.9.1",
+    "manifest_version": 2,
+    "description": "__MSG_extDescription__",
+    "default_locale": "ru",
+    "icons": { "16": "icon16.png",
+               "48": "icon48.png",
+              "128": "icon128.png" },
     "content_scripts": [{
             "matches": ["http://*/*", "https://*/*"],
             "js": ["external/jquery.js", "external/hogan.js", "external/inflection.js", "compiled_templates.js", "contentscript.js"],
             "css": ["style.css"]
         }
-    ],
-    "manifest_version": 2
+    ]
 }
