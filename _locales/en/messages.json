@@ -4,7 +4,7 @@
         "description": "Extension name."
     },
     "extDescription": {
-        "message": "Select english word on a webpage and press Ctrl + C + C to get russian translation",
+        "message": "Select english word and press Ctrl + C + C to get russian translation",
         "description": "Extension description."
     }
 }
