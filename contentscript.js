@@ -92,10 +92,17 @@ function buildViewModel(word, rawData) {
     var result = {"translations": [], "title": word };
     var translations = result.translations;
     if (!isEmptyModel(rawData)) {
+        var count = 1;
         $.each(rawData.def, function(_, definition) {
-            $.each(definition.tr, function (_, translation) {
-                translations.push({"translation" : translation.text});
+            var translationAcc = count + ". ";
+            $.each(definition.tr, function (ix, translation) {
+                translationAcc += translation.text;
+                if (ix < definition.tr.length - 1) {
+                    translationAcc += ", "
+                } 
             });
+            translations.push({"translation" : translationAcc});
+            ++count;
        });
     }
     else {
